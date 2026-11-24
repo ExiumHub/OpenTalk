@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Date Section Header (Today / Yesterday / Thursday 19 November) -->
+    <TextView
+        android:id="@+id/tvDateHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:paddingStart="12dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="7dp"
+        android:text="Today"
+        android:textColor="@color/text_secondary"
+        android:textSize="13.5sp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <!-- Grouped Day Card Row Container -->
+    <LinearLayout
+        android:id="@+id/layoutCallContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_call_card_row"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp">
+
+        <!-- Modern Circular Multi-Select CheckBox -->
+        <CheckBox
+            android:id="@+id/cbSelectCall"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="12dp"
+            android:button="@drawable/selector_checkbox_circle"
+            android:buttonTint="@null"
+            android:clickable="false"
+            android:focusable="false"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:visibility="gone"
+            app:buttonTint="@null" />
+
+        <!-- Clean Call Type Icon (Slightly larger: 21dp) -->
+        <ImageView
+            android:id="@+id/ivCallTypeIcon"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:contentDescription="Call Type"
+            android:src="@drawable/ic_recent_call_outgoing" />
+
+        <!-- Right Column: Caller Name/Number + Time on top, Exact-Span Underline at bottom -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="60dp"
+                android:orientation="horizontal"
+                android:paddingVertical="12dp">
+
+                <!-- Caller Name / Number & Optional Blocked Badge (Constrained so long names ellipsize before badge) -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvCallerName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="@color/text_primary"
+                        android:textSize="17sp"
+                        app:layout_constrainedWidth="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/layoutBlockedBadge"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="+8801404004877 (2)" />
+
+                    <!-- Blocked Number Visual Badge in Recents -->
+                    <LinearLayout
+                        android:id="@+id/layoutBlockedBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="19dp"
+                        android:layout_marginStart="7dp"
+                        android:background="@drawable/bg_settings_pill_danger"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="6dp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvCallerName"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:contentDescription="Blocked"
+                            android:src="@drawable/ic_block"
+                            app:tint="@color/call_red" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="3dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Blocked"
+                            android:textColor="@color/call_red"
+                            android:textSize="9.5sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Right-Aligned Call Time (e.g. 3:38 pm) -->
+                <TextView
+                    android:id="@+id/tvCallDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:gravity="end|center_vertical"
+                    android:maxLines="1"
+                    android:text=""
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    tools:text="3:38 pm" />
+            </LinearLayout>
+
+            <!-- Underline spanning strictly from start of Name/Number to end of Time -->
+            <View
+                android:id="@+id/viewRowDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_row" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_incall_screen"
+    android:fillViewport="true"
+    android:overScrollMode="ifContentScrolls"
+    android:scrollbars="none">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:paddingStart="24dp"
+    android:paddingTop="16dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="20dp">
+
+    <!-- Top Spacer for Status Bar -->
+    <View
+        android:id="@+id/topSpacer"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Ambient Glow Halo Behind Caller Avatar -->
+    <View
+        android:id="@+id/viewAvatarHalo"
+        android:layout_width="132dp"
+        android:layout_height="132dp"
+        android:background="@drawable/bg_incall_avatar_halo"
+        app:layout_constraintBottom_toBottomOf="@id/layoutAvatar"
+        app:layout_constraintEnd_toEndOf="@id/layoutAvatar"
+        app:layout_constraintStart_toStartOf="@id/layoutAvatar"
+        app:layout_constraintTop_toTopOf="@id/layoutAvatar" />
+
+    <!-- Luminous Glass Circular Profile Avatar -->
+    <FrameLayout
+        android:id="@+id/layoutAvatar"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_incall_avatar"
+        android:elevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topSpacer">
+
+        <ImageView
+            android:id="@+id/ivAvatarIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_phone"
+            app:tint="@color/incall_avatar_icon" />
+
+        <TextView
+            android:id="@+id/tvAvatarInitials"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/incall_avatar_text"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <!-- Caller Name / Main Title -->
+    <TextView
+        android:id="@+id/tvRemoteName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:letterSpacing="-0.01"
+        android:maxLines="1"
+        android:text=""
+        android:textColor="@color/incall_text_primary"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutAvatar"
+        tools:text="Calling..." />
+
+    <!-- Caller Subtitle / Phone Number -->
+    <TextView
+        android:id="@+id/tvRemoteNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:letterSpacing="0.03"
+        android:maxLines="1"
+        android:text=""
+        android:textColor="@color/incall_text_tertiary"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvRemoteName" />
+
+    <!-- Call State / Live Duration Timer -->
+    <TextView
+        android:id="@+id/tvCallState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.02"
+        android:text="Calling..."
+        android:textColor="@color/incall_state_accent"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvRemoteNumber" />
+
+    <!-- Preserved for ViewBinding compatibility (Hidden, 0dp) -->
+    <TextView
+        android:id="@+id/tvCallDuration"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCallState" />
+
+    <!-- Real-time Frosted Glass Call Quality Badge -->
+    <LinearLayout
+        android:id="@+id/layoutQualityIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_incall_quality_pill"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="6dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCallState">
+
+        <View
+            android:id="@+id/viewQualityDot"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:background="@drawable/bg_status_dot"
+            android:backgroundTint="#34D399" />
+
+        <TextView
+            android:id="@+id/tvQualityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="HD Voice • 28ms"
+            android:textColor="@color/incall_quality_text"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Frosted Glass 6-Button In-Call Controls Grid -->
+    <LinearLayout
+        android:id="@+id/controlsLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="32dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/btnEndCall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutQualityIndicator"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <!-- Row 1: Mute | Keypad | Speaker -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Mute -->
+            <LinearLayout
+                android:id="@+id/btnMute"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/ibMute"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_incall_control_button"
+                    android:clickable="true"
+                    android:contentDescription="Mute"
+                    android:focusable="true"
+                    android:src="@drawable/ic_mic"
+                    app:tint="@color/incall_ctrl_icon" />
+
+                <TextView
+                    android:id="@+id/tvMuteLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Mute"
+                    android:textColor="@color/incall_text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Keypad (DTMF) -->
+            <LinearLayout
+                android:id="@+id/btnKeypad"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/ibKeypad"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_incall_control_button"
+                    android:clickable="true"
+                    android:contentDescription="Keypad"
+                    android:focusable="true"
+                    android:src="@drawable/ic_keypad"
+                    app:tint="@color/incall_ctrl_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Keypad"
+                    android:textColor="@color/incall_text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Speaker -->
+            <LinearLayout
+                android:id="@+id/btnSpeaker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/ibSpeaker"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_incall_control_button"
+                    android:clickable="true"
+                    android:contentDescription="Speaker"
+                    android:focusable="true"
+                    android:src="@drawable/ic_speaker"
+                    app:tint="@color/incall_ctrl_icon" />
+
+                <TextView
+                    android:id="@+id/tvSpeakerLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Speaker"
+                    android:textColor="@color/incall_text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Row 2: Add Call | Record | Hold -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Add Call -->
+            <LinearLayout
+                android:id="@+id/btnCallAdd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/ibCallAdd"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_incall_control_button"
+                    android:clickable="true"
+                    android:contentDescription="Add Call"
+                    android:focusable="true"
+                    android:src="@drawable/ic_add_call"
+                    app:tint="@color/incall_ctrl_icon" />
+
+                <TextView
+                    android:id="@+id/tvCallAddLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Add Call"
+                    android:textColor="@color/incall_text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Record -->
+            <LinearLayout
+                android:id="@+id/btnRecord"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/ibRecord"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_incall_control_button"
+                    android:clickable="true"
+                    android:contentDescription="Record Call"
+                    android:focusable="true"
+                    android:src="@drawable/ic_record"
+                    app:tint="@color/incall_ctrl_icon" />
+
+                <TextView
+                    android:id="@+id/tvRecordLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Record"
+                    android:textColor="@color/incall_text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Hold -->
+            <LinearLayout
+                android:id="@+id/btnHold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/ibHold"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_incall_control_button"
+                    android:clickable="true"
+                    android:contentDescription="Hold"
+                    android:focusable="true"
+                    android:src="@drawable/ic_hold"
+                    app:tint="@color/incall_ctrl_icon" />
+
+                <TextView
+                    android:id="@+id/tvHoldLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Hold"
+                    android:textColor="@color/incall_text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Soft Crimson Halo Behind End Call -->
+    <View
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/bg_incoming_decline_halo"
+        app:layout_constraintBottom_toBottomOf="@id/btnEndCall"
+        app:layout_constraintEnd_toEndOf="@id/btnEndCall"
+        app:layout_constraintStart_toStartOf="@id/btnEndCall"
+        app:layout_constraintTop_toTopOf="@id/btnEndCall" />
+
+    <!-- Radiant Crimson Circular Hang Up Button -->
+    <ImageButton
+        android:id="@+id/btnEndCall"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/bg_hangup_button"
+        android:clickable="true"
+        android:contentDescription="End Call"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:src="@drawable/ic_phone_hangup"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/controlsLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

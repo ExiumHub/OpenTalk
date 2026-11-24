@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="false"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="16dp"
+    android:paddingEnd="14dp">
+
+    <!-- Call History / Call Type Icon (matching Recents tab style — no profile avatar) -->
+    <ImageView
+        android:id="@+id/ivSuggestIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:contentDescription="Call History"
+        android:src="@drawable/ic_tab_recents" />
+
+    <!-- Right Column: Name/Number + Quick Call on top, Exact-Span Underline at bottom -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvSuggestPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif"
+                    android:maxLines="1"
+                    android:maxWidth="145dp"
+                    android:text="01722535322"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvSuggestSecondary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif"
+                    android:maxLines="1"
+                    android:text=""
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/btnSuggestQuickCall"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_quick_call_soft"
+                android:clickable="true"
+                android:focusable="false">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Call"
+                    android:src="@drawable/ic_phone"
+                    app:tint="@color/call_green" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Exact-Span Recents-Style Underline -->
+        <View
+            android:id="@+id/viewSuggestDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_row" />
+    </LinearLayout>
+
+</LinearLayout>

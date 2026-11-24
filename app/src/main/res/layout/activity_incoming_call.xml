@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_incall_screen"
+    android:fillViewport="true"
+    android:overScrollMode="ifContentScrolls"
+    android:scrollbars="none">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:paddingStart="28dp"
+    android:paddingTop="40dp"
+    android:paddingEnd="28dp"
+    android:paddingBottom="32dp">
+
+    <!-- Luminous Status Pill Badge -->
+    <TextView
+        android:id="@+id/tvIncomingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_incoming_status_pill"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.16"
+        android:paddingStart="18dp"
+        android:paddingTop="7dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="7dp"
+        android:text="INCOMING CALL"
+        android:textColor="@color/incoming_pill_text"
+        android:textSize="11.5sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Ambient Glow Halo Behind Avatar -->
+    <View
+        android:id="@+id/viewIncomingAvatarHalo"
+        android:layout_width="148dp"
+        android:layout_height="148dp"
+        android:background="@drawable/bg_incall_avatar_halo"
+        app:layout_constraintBottom_toBottomOf="@id/layoutIncomingAvatar"
+        app:layout_constraintEnd_toEndOf="@id/layoutIncomingAvatar"
+        app:layout_constraintStart_toStartOf="@id/layoutIncomingAvatar"
+        app:layout_constraintTop_toTopOf="@id/layoutIncomingAvatar" />
+
+    <!-- Circular Glass Caller Avatar -->
+    <FrameLayout
+        android:id="@+id/layoutIncomingAvatar"
+        android:layout_width="106dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/bg_incall_avatar"
+        android:elevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvIncomingTitle">
+
+        <ImageView
+            android:id="@+id/ivIncomingAvatarIcon"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:contentDescription="Caller"
+            android:src="@drawable/ic_phone"
+            app:tint="@color/incall_avatar_icon" />
+
+        <TextView
+            android:id="@+id/tvIncomingAvatarInitials"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/incall_avatar_text"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <!-- Caller Name -->
+    <TextView
+        android:id="@+id/tvIncomingName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:letterSpacing="-0.01"
+        android:maxLines="2"
+        android:text="Incoming Caller"
+        android:textColor="@color/incall_text_primary"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutIncomingAvatar" />
+
+    <!-- Caller Subtitle / Phone Number -->
+    <TextView
+        android:id="@+id/tvIncomingNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:letterSpacing="0.03"
+        android:maxLines="1"
+        android:text=""
+        android:textColor="@color/incall_text_tertiary"
+        android:textSize="16.5sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvIncomingName"
+        tools:text="+88096XXXXXXXX" />
+
+    <!-- Modern Dual-Direction Frosted Glass Swipe Control (Left: Decline | Right: Accept) -->
+    <LinearLayout
+        android:id="@+id/layoutIncomingActions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="30dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvIncomingNumber"
+        app:layout_constraintVertical_bias="1.0">
+
+        <!-- Concise Dynamic Swipe Status Label -->
+        <TextView
+            android:id="@+id/tvSwipeHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:letterSpacing="0.04"
+            android:text="Slide to answer"
+            android:textColor="@color/incall_text_secondary"
+            android:textSize="13.5sp" />
+
+        <!-- Frosted-Glass Horizontal Dual-Direction Slider -->
+        <com.opentalk.android.ui.IncomingCallSwipeView
+            android:id="@+id/swipeCallAction"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:contentDescription="Slide right to accept or slide left to decline" />
+
+        <!-- Crisp Left / Right Labels Directly Below Target Circles -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:paddingHorizontal="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvDeclineLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="start"
+                android:letterSpacing="0.02"
+                android:text="Decline"
+                android:textColor="@color/incoming_decline_text"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvAcceptLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="end"
+                android:letterSpacing="0.02"
+                android:text="Accept"
+                android:textColor="@color/incoming_accept_text"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

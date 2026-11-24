@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_canvas"
+    android:orientation="vertical">
+
+    <!-- Elevated Pill Search Bar -->
+    <LinearLayout
+        android:id="@+id/layoutSearchHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface_canvas"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="10dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+
+            <EditText
+                android:id="@+id/etSearchRecents"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_search_input"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/text_tertiary"
+                android:elevation="1dp"
+                android:fontFamily="sans-serif"
+                android:hint="Search recent calls..."
+                android:imeOptions="actionSearch"
+                android:paddingStart="14dp"
+                android:paddingEnd="40dp"
+                android:singleLine="true"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_tertiary"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/btnClearSearchRecents"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="7dp"
+                android:contentDescription="Clear Search"
+                android:padding="6dp"
+                android:src="@drawable/ic_action_delete"
+                android:visibility="gone"
+                app:tint="@color/text_secondary" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Adaptive Light/Dark Multi-Select Action Bar -->
+    <LinearLayout
+        android:id="@+id/layoutBatchActions"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_batch_bar"
+        android:elevation="3dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="14dp"
+        android:paddingEnd="10dp"
+        android:visibility="gone">
+
+        <CheckBox
+            android:id="@+id/cbSelectAllRecents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/selector_checkbox_circle"
+            android:buttonTint="@null"
+            android:fontFamily="sans-serif-medium"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingStart="8dp"
+            android:text="All"
+            android:textColor="@color/batch_bar_text_secondary"
+            android:textSize="13sp"
+            app:buttonTint="@null" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            android:layout_marginHorizontal="12dp"
+            android:background="@color/batch_bar_divider" />
+
+        <TextView
+            android:id="@+id/tvSelectedCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:text="1 selected"
+            android:textColor="@color/batch_bar_text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btnDeleteSelectedRecents"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="Delete Selected"
+            android:focusable="true"
+            android:padding="9dp"
+            android:src="@drawable/ic_action_delete"
+            app:tint="@color/call_red" />
+    </LinearLayout>
+
+    <!-- Modern Empty Results View -->
+    <LinearLayout
+        android:id="@+id/layoutEmptyRecents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="32dp"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:background="@drawable/bg_avatar_circle">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:contentDescription="Empty"
+                android:src="@drawable/ic_tab_recents"
+                app:tint="@color/primary" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvEmptyRecentsMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="No Call History"
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Card-Spaced Modern Recents List -->
+    <ListView
+        android:id="@+id/lvRecents"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:listSelector="@android:color/transparent"
+        android:paddingHorizontal="14dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="20dp"
+        android:scrollbars="none" />
+
+</LinearLayout>

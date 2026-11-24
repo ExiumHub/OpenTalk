@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MyIpPhone" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryContainer">@color/primary_light</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="android:windowBackground">@color/surface_canvas</item>
+        <item name="android:statusBarColor">@color/surface_canvas</item>
+        <item name="android:navigationBarColor">@color/surface_canvas</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.OpenTalk.BottomSheet</item>
+    </style>
+
+    <!-- Adaptive Light/Dark Theme for CallActivity & IncomingCallActivity -->
+    <style name="Theme.MyIpPhone.CallScreen" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="android:windowBackground">@drawable/bg_incall_screen</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:statusBarColor">@color/incall_bg_start</item>
+        <item name="android:navigationBarColor">@color/incall_bg_end</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.OpenTalk.BottomSheet</item>
+    </style>
+
+    <style name="ThemeOverlay.OpenTalk.BottomSheet" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.OpenTalk.BottomSheet</item>
+    </style>
+
+    <style name="Widget.OpenTalk.BottomSheet" parent="Widget.Material3.BottomSheet">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+    </style>
+</resources>

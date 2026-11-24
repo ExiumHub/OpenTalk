@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Identity: Deep Royal Indigo & Electric Cyan -->
+    <color name="primary">#4F46E5</color>
+    <color name="primary_dark">#3730A3</color>
+    <color name="primary_light">#EEF2FF</color>
+    <color name="primary_soft">#E0E7FF</color>
+    <color name="accent">#06B6D4</color>
+
+    <!-- Light Workspace Surfaces -->
+    <color name="surface_canvas">#F7F8FC</color>
+    <color name="surface_card">#FFFFFF</color>
+    <color name="surface_elevated">#F1F4FA</color>
+    <color name="surface_input">#F7F8FC</color>
+    <color name="border_subtle">#E6EBF4</color>
+    <color name="divider_row">#D1D5DB</color>
+
+    <!-- Typography -->
+    <color name="text_primary">#0B1220</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_tertiary">#94A3B8</color>
+
+    <!-- Calling & Semantic Colors -->
+    <color name="call_green">#10B981</color>
+    <color name="call_green_dark">#059669</color>
+    <color name="call_red">#EF4444</color>
+    <color name="call_red_dark">#DC2626</color>
+
+    <!-- Dark Obsidian Legacy Tokens -->
+    <color name="surface_dark">#070C18</color>
+    <color name="card_dark">#131C33</color>
+
+    <!-- Keypad & Navigation Tokens -->
+    <color name="keypad_bg">#FFFFFF</color>
+    <color name="keypad_pressed">#EEF2FF</color>
+    <color name="keypad_border">#E8EDF6</color>
+    <color name="keypad_text">#0B1220</color>
+    <color name="keypad_subtext">#64748B</color>
+    <color name="tab_active_pill">#EEF2FF</color>
+    <color name="tab_active_fg">#4F46E5</color>
+    <color name="quick_call_bg">#ECFDF5</color>
+    <color name="quick_call_stroke">#A7F3D0</color>
+    <color name="danger_soft_bg">#FEF2F2</color>
+    <color name="danger_soft_stroke">#FECACA</color>
+    <color name="card_selected_bg">#EEF2FF</color>
+    <color name="segmented_bg">#EEF2F8</color>
+    <color name="segmented_active_bg">#FFFFFF</color>
+    <color name="icon_soft_bg">#EEF2FF</color>
+    <color name="pill_action_bg">#EEF2FF</color>
+    <color name="avatar_bg_start">#EEF2FF</color>
+    <color name="avatar_bg_end">#E0E7FF</color>
+    <color name="avatar_stroke">#C7D2FE</color>
+
+    <!-- SIP Status Tokens -->
+    <color name="registered_green">#10B981</color>
+    <color name="registering_amber">#F59E0B</color>
+    <color name="failed_red">#EF4444</color>
+    <color name="unregistered_grey">#94A3B8</color>
+
+    <!-- Theme-Aware Multi-Select Bar Tokens (Light Mode) -->
+    <color name="batch_bar_text_primary">#0B1220</color>
+    <color name="batch_bar_text_secondary">#475569</color>
+    <color name="batch_bar_divider">#E2E8F0</color>
+
+    <!-- Theme-Aware In-Call & Incoming Call Interface Tokens (Light Mode) -->
+    <color name="incall_bg_start">#F4F7FE</color>
+    <color name="incall_bg_center">#F8FAFC</color>
+    <color name="incall_bg_end">#EEF2FA</color>
+    <color name="incall_glow_start">#224F46E5</color>
+    <color name="incall_glow_center">#0F3B82F6</color>
+    <color name="incall_text_primary">#0F172A</color>
+    <color name="incall_text_secondary">#475569</color>
+    <color name="incall_text_tertiary">#64748B</color>
+    <color name="incall_state_accent">#4F46E5</color>
+    <color name="incall_ctrl_bg">#FFFFFF</color>
+    <color name="incall_ctrl_stroke">#DCE3F0</color>
+    <color name="incall_ctrl_ripple">#1F4F46E5</color>
+    <color name="incall_ctrl_icon">#1E293B</color>
+    <color name="incall_ctrl_active_bg">#4F46E5</color>
+    <color name="incall_ctrl_active_icon">#FFFFFF</color>
+    <color name="incall_ctrl_active_label">#4F46E5</color>
+    <color name="incall_avatar_start">#E0E7FF</color>
+    <color name="incall_avatar_end">#CFFAFE</color>
+    <color name="incall_avatar_stroke">#A5B4FC</color>
+    <color name="incall_avatar_icon">#4F46E5</color>
+    <color name="incall_avatar_text">#3730A3</color>
+    <color name="incall_quality_bg">#ECFDF5</color>
+    <color name="incall_quality_stroke">#A7F3D0</color>
+    <color name="incall_quality_text">#059669</color>
+    <color name="incoming_pill_bg">#EEF2FF</color>
+    <color name="incoming_pill_stroke">#C7D2FE</color>
+    <color name="incoming_pill_text">#4F46E5</color>
+    <color name="incoming_decline_text">#DC2626</color>
+    <color name="incoming_accept_text">#059669</color>
+    <color name="incoming_swipe_track">#E2E8F0</color>
+    <color name="incoming_swipe_stroke">#CBD5E1</color>
+    <color name="incall_sheet_bg">#FFFFFF</color>
+    <color name="incall_sheet_card_bg">#F8FAFC</color>
+    <color name="incall_sheet_card_stroke">#E2E8F0</color>
+</resources>

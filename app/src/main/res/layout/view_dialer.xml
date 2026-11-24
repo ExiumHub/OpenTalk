@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_canvas"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="4dp">
+
+    <!-- Top Display & Smart Dialer Suggestions Area (Weighted NestedScrollView guarantees tvPhoneNumber & hint NEVER clip) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="4dp">
+
+        <!-- Smart Multi-Match Dialer Suggestions: takes only remaining space above phone number and scrolls on compact screens -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollDialerSuggestions"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="6dp"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            android:visibility="gone">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/layoutDialerSuggestionsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/bg_settings_card"
+                    android:elevation="2dp"
+                    android:orientation="vertical"
+                    android:paddingVertical="2dp" />
+            </FrameLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <EditText
+            android:id="@+id/tvPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:cursorVisible="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:hint=""
+            android:includeFontPadding="false"
+            android:inputType="phone"
+            android:letterSpacing="0.03"
+            android:maxLines="1"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/text_primary"
+            android:textCursorDrawable="@drawable/cursor_blue"
+            android:textSize="34sp" />
+
+        <!-- Clean Add Number Action Pill -->
+        <TextView
+            android:id="@+id/tvAddNumberHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_settings_pill_action"
+            android:fontFamily="sans-serif-medium"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="+ Add to Contacts"
+            android:textColor="@color/primary"
+            android:textSize="11.5sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- Tactile Circular Modern Keypad Grid -->
+    <GridLayout
+        android:id="@+id/dialGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:alignmentMode="alignMargins"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:columnCount="3"
+        android:rowCount="4" />
+
+    <!-- Bottom Call Action Row -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:layout_marginTop="4dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingHorizontal="36dp">
+
+        <!-- Radiant Emerald Call Button -->
+        <ImageButton
+            android:id="@+id/btnCallAction"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_call_button"
+            android:contentDescription="Call"
+            android:elevation="6dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:src="@drawable/ic_phone" />
+
+        <!-- Clean Tactile Backspace Button -->
+        <ImageButton
+            android:id="@+id/btnBackspace"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_action_btn_gray"
+            android:contentDescription="Backspace"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:padding="11dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_backspace_ios"
+            app:tint="@color/text_secondary"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+
+</LinearLayout>

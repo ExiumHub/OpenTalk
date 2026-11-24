@@ -1,0 +1,19 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+app/build/
+
+# Signing files / Keystores
+*.jks
+*.keystore
+*.p12
+
+# Google Services / Sensitive API secrets if any
+# google-services.json

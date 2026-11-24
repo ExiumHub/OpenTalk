@@ -1,0 +1,37 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Apple SF Symbol: circle.grid.3x3.fill (9 symmetric circular dots) -->
+    <!-- Row 1 -->
+    <path
+        android:fillColor="#007AFF"
+        android:pathData="M 5.5,3.6 A 1.9,1.9 0 1,0 5.5,7.4 A 1.9,1.9 0 1,0 5.5,3.6 Z" />
+    <path
+        android:fillColor="#007AFF"
+        android:pathData="M 12.0,3.6 A 1.9,1.9 0 1,0 12.0,7.4 A 1.9,1.9 0 1,0 12.0,3.6 Z" />
+    <path
+        android:fillColor="#007AFF"
+        android:pathData="M 18.5,3.6 A 1.9,1.9 0 1,0 18.5,7.4 A 1.9,1.9 0 1,0 18.5,3.6 Z" />
+    <!-- Row 2 -->
+    <path
+        android:fillColor="#007AFF"
+        android:pathData="M 5.5,10.1 A 1.9,1.9 0 1,0 5.5,13.9 A 1.9,1.9 0 1,0 5.5,10.1 Z" />
+    <path
+        android:fillColor="#007AFF"
+        android:pathData="M 12.0,10.1 A 1.9,1.9 0 1,0 12.0,13.9 A 1.9,1.9 0 1,0 12.0,10.1 Z" />
+    <path
+        android:fillColor="#007AFF"
+        android:pathData="M 18.5,10.1 A 1.9,1.9 0 1,0 18.5,13.9 A 1.9,1.9 0 1,0 18.5,10.1 Z" />
+    <!-- Row 3 -->
+    <path
+        android:fillColor="#007AFF"
+        android:pathData="M 5.5,16.6 A 1.9,1.9 0 1,0 5.5,20.4 A 1.9,1.9 0 1,0 5.5,16.6 Z" />
+    <path
+        android:fillColor="#007AFF"
+        android:pathData="M 12.0,16.6 A 1.9,1.9 0 1,0 12.0,20.4 A 1.9,1.9 0 1,0 12.0,16.6 Z" />
+    <path
+        android:fillColor="#007AFF"
+        android:pathData="M 18.5,16.6 A 1.9,1.9 0 1,0 18.5,20.4 A 1.9,1.9 0 1,0 18.5,16.6 Z" />
+</vector>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OpenTalk</string>
+    <string name="title_dialer">Keypad</string>
+    <string name="title_recents">Recents</string>
+    <string name="title_contacts">Contacts</string>
+    <string name="title_settings">Settings</string>
+</resources>

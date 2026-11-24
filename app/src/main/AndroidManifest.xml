@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Network & SIP Signaling -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Audio & Media Permissions -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+
+    <!-- Android 14 Foreground Service Requirements -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_PHONE_CALL" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+
+    <!-- Incoming Call Notifications & Ringing -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Address Book & Calls -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <!-- App Icon Badge & Unread Counter Permissions for OEM Launchers -->
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" />
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" />
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" />
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_APP_BADGE" />
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+    <uses-permission android:name="com.transsion.badge.permission.READ" />
+    <uses-permission android:name="com.transsion.badge.permission.WRITE" />
+
+    <!-- Package visibility for OEM launcher badges & settings intents on Android 11+ -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.BADGE_COUNT_UPDATE" />
+        </intent>
+        <intent>
+            <action android:name="com.sonyericsson.home.action.UPDATE_BADGE" />
+        </intent>
+        <intent>
+            <action android:name="com.htc.launcher.action.UPDATE_SHORTCUT" />
+        </intent>
+        <intent>
+            <action android:name="com.oppo.unsettledevent" />
+        </intent>
+        <intent>
+            <action android:name="launcher.action.CHANGE_APPLICATION_NOTIFICATION_NUM" />
+        </intent>
+        <intent>
+            <action android:name="com.mediatek.action.UNREAD_CHANGED" />
+        </intent>
+        <intent>
+            <action android:name="com.transsion.action.BADGE_COUNT_UPDATE" />
+        </intent>
+        <package android:name="com.transsion.phonemaster" />
+        <provider android:authorities="com.transsion.XOSLauncher.unreadprovider" />
+        <provider android:authorities="com.transsion.hilauncher.unreadprovider" />
+        <provider android:authorities="com.sec.badge" />
+        <provider android:authorities="com.huawei.android.launcher.settings" />
+        <provider android:authorities="com.android.badge" />
+        <provider android:authorities="com.hihonor.android.launcher.settings" />
+    </queries>
+
+    <application
+        android:name=".OpenTalkApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:usesCleartextTraffic="false"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyIpPhone">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- Default Dialer: Open dialer without scheme -->
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!-- Default Dialer: Handle tel: links clicked anywhere on the phone -->
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tel" />
+            </intent-filter>
+            <!-- Handle VIEW action for tel: and sip: links -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tel" />
+                <data android:scheme="sip" />
+            </intent-filter>
+            <!-- Handle CALL action for direct telephony triggers -->
+            <intent-filter>
+                <action android:name="android.intent.action.CALL" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="tel" />
+                <data android:scheme="sip" />
+            </intent-filter>
+        </activity>
+
+        <!-- Fullscreen In-Call Activity (Dedicated Call Task, Immune to Dialer Recents Swipe) -->
+        <activity
+            android:name=".CallActivity"
+            android:theme="@style/Theme.MyIpPhone.CallScreen"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.opentalk.android.call"
+            android:excludeFromRecents="false"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|smallestScreenSize"
+            android:showWhenLocked="true"
+            android:turnScreenOn="true"
+            android:directBootAware="true" />
+
+        <!-- Fullscreen Incoming Ringing Activity (Dedicated Incoming Task, Never Collides With CallActivity) -->
+        <activity
+            android:name=".IncomingCallActivity"
+            android:theme="@style/Theme.MyIpPhone.CallScreen"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.opentalk.android.incoming"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|smallestScreenSize"
+            android:showWhenLocked="true"
+            android:turnScreenOn="true"
+            android:directBootAware="true" />
+
+        <!-- 24/7 Foreground VoIP Service (Never Stopped With Task) -->
+        <service
+            android:name=".services.SipVoipService"
+            android:enabled="true"
+            android:exported="false"
+            android:stopWithTask="false"
+            android:directBootAware="true"
+            android:foregroundServiceType="phoneCall|microphone" />
+
+        <!-- Telecom Connection Service -->
+        <service
+            android:name=".services.TelecomConnectionService"
+            android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE"
+            android:exported="true"
+            android:directBootAware="true">
+            <intent-filter>
+                <action android:name="android.telecom.ConnectionService" />
+            </intent-filter>
+        </service>
+
+        <!-- Direct Boot & Auto-start Receiver -->
+        <receiver
+            android:name=".receivers.BootReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.REBOOT" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 24/7 SIP Keep-Alive, Self-Healing Watchdog & Internal Notification Actions -->
+        <receiver
+            android:name=".receivers.SipWatchdogReceiver"
+            android:enabled="true"
+            android:exported="false"
+            android:directBootAware="true">
+            <intent-filter>
+                <action android:name="com.opentalk.android.action.SIP_WATCHDOG_TICK" />
+                <action android:name="com.opentalk.android.action.DISMISS_MISSED_CALL" />
+            </intent-filter>
+        </receiver>
+
+        <!-- FileProvider for In-App APK Updates and Sharing -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Grey Phone Handset -->
+    <path
+        android:fillColor="#71717A"
+        android:pathData="M19.23,15.26l-2.54,-0.29c-0.61,-0.07 -1.21,0.14 -1.64,0.57l-1.84,1.84c-2.83,-1.44 -5.15,-3.75 -6.59,-6.59l1.85,-1.85c0.43,-0.43 0.64,-1.03 0.57,-1.64l-0.29,-2.52c-0.12,-1.01 -0.97,-1.77 -1.99,-1.77H5.03c-1.13,0 -2.07,0.94 -2,2.07c0.53,8.54 7.36,15.36 15.89,15.89c1.13,0.07 2.07,-0.87 2.07,-2v-1.73c0.01,-1.01 -0.75,-1.86 -1.76,-1.98z" />
+    <!-- Blue Slash-Circle (Declined / Blocked Badge at Top-Right) -->
+    <path
+        android:fillColor="#2563EB"
+        android:pathData="M17.5,3C15.01,3 13,5.01 13,7.5S15.01,12 17.5,12S22,9.99 22,7.5S19.99,3 17.5,3zM14.5,7.5c0,-1.66 1.34,-3 3,-3c0.63,0 1.21,0.2 1.69,0.53L15.03,9.19C14.7,8.71 14.5,8.13 14.5,7.5zM17.5,10.5c-0.63,0 -1.21,-0.2 -1.69,-0.53l4.16,-4.16C20.3,6.29 20.5,6.87 20.5,7.5C20.5,9.16 19.16,10.5 17.5,10.5z" />
+</vector>
